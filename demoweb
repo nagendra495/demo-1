@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Rendezvous - Telugu Love & Laughter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #e91e63;
+            --secondary: #9c27b0;
+            --accent: #ff4081;
+            --dark: #2c003e;
+            --light: #fce4ec;
+            --text: #333;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light), #fff);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Jokes Section */
+        .jokes-section {
+            padding: 50px 0;
+        }
+
+        .jokes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .joke-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .joke-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .joke-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .joke-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .joke-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .joke-type {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Dialogues Section */
+        .dialogues-section {
+            background: linear-gradient(135deg, var(--light), #fff);
+            padding: 50px 0;
+        }
+
+        .dialogues-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .dialogue-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dialogue-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .dialogue-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .dialogue-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .movie-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .movie-name {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .character {
+            color: #777;
+        }
+
+        /* Surprise Section */
+        .surprise-section {
+            padding: 50px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+
+        .surprise-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .surprise-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .surprise-content {
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+
+        .surprise-content.active {
+            display: block;
+        }
+
+        .surprise-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 5px solid white;
+        }
+
+        .surprise-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .love-message {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        /* Quotes Section */
+        .quotes-section {
+            padding: 50px 0;
+        }
+
+        .quotes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .quote-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .quote-card:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--light);
+            z-index: 0;
+        }
+
+        .quote-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .heart {
+            color: var(--primary);
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heart"></i>
+                    <h1>Romantic <span>Rendezvous</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#jokes">Jokes</a></li>
+                        <li><a href="#dialogues">Dialogues</a></li>
+                        <li><a href="#quotes">Quotes</a></li>
+                        <li><a href="#surprise">Surprise</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Love, Laughter & Telugu Romance</h2>
+            <p>Discover the perfect blend of romantic jokes, heartwarming dialogues from Telugu cinema, and sweet surprises for your loved one.</p>
+            <a href="#surprise" class="btn">Create a Surprise</a>
+        </div>
+    </section>
+
+    <!-- Jokes Section -->
+    <section class="jokes-section" id="jokes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Romantic Jokes</h2>
+            </div>
+            <div class="jokes-container">
+                <div class="joke-card">
+                    <span class="joke-type">Funny</span>
+                    <h3>Tech Love</h3>
+                    <p>Boy: I think you're like Google.<br>
+                    Girl: Why? Because I have all the answers?<br>
+                    Boy: No, because you're everything I've been searching for!</p>
+                </div>
+                
+                <div class="joke-card">
+                    <span class="joke-type">Sweet</span>
+                    <h3>Math Romance</h3>
+                    <p>Girl: Do you know what's the longest word in English?<br>
+                    Boy: Smiles! Because there's a mile between the first and last letter.<br>
+                    Girl: Actually, it's "I love you" because it lasts forever!</p>
+                </div>
+                
+                <div class="joke-card">
+                    <span class="joke-type">Cheesy</span>
+                    <h3>Food Love</h3>
+                    <p>Boy: Are you a magician?<br>
+                    Girl: No, why?<br>
+                    Boy: Because whenever I look at you, everyone else disappears!</p>
+                </div>
+                
+                <div class="joke-card">
+                    <span class="joke-type">Telugu Twist</span>
+                    <h3>Nuvvu Naaku Nachav</h3>
+                    <p>Boy: Nenu chocolate la unna, neeku thelusthundi kada?<br>
+                    Girl: Enduku?<br>
+                    Boy: Ante nenu melt avuthunna nee kosam!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dialogues Section -->
+    <section class="dialogues-section" id="dialogues">
+        <div class="container">
+            <div class="section-title">
+                <h2>Iconic Telugu Love Dialogues</h2>
+            </div>
+            <div class="dialogues-container">
+                <div class="dialogue-card">
+                    <div class="dialogue-text">
+                        "Nuvvu naaku chala avasaram... Nee lekunte nenu enni rojulu brathikagalanu, kani brathikanantha sukham ga brathikaleru."
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-name">Arjun Reddy</div>
+                        <div class="character">- Arjun</div>
+                    </div>
+                </div>
+                
+                <div class="dialogue-card">
+                    <div class="dialogue-text">
+                        "Nee ishtam neeku teliyali, nee abhimanam naku teliyali... Idi oka relationship kaadu, idi oka love."
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-name">Majili</div>
+                        <div class="character">- Pooja</div>
+                    </div>
+                </div>
+                
+                <div class="dialogue-card">
+                    <div class="dialogue-text">
+                        "Manishi ki oka istam undali, oka korika undali... Naa korika neeve, naa istam neeve."
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-name">Geetha Govindam</div>
+                        <div class="character">- Vijay</div>
+                    </div>
+                </div>
+                
+                <div class="dialogue-card">
+                    <div class="dialogue-text">
+                        "Nuvvu naa daggaraki vacchesi, naa jeevithanni marchipoyanu... Ippudu nuvvu velthe, nenu em chestanu?"
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-name">Dear Comrade</div>
+                        <div class="character">- Bobby</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section class="quotes-section" id="quotes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Romantic Quotes</h2>
+            </div>
+            <div class="quotes-container">
+                <div class="quote-card">
+                    <div class="quote-text">
+                        Love isn't something you find. Love is something that finds you.
+                    </div>
+                    <div class="quote-author">- Loretta Young</div>
+                </div>
+                
+                <div class="quote-card">
+                    <div class="quote-text">
+                        The best thing to hold onto in life is each other.
+                    </div>
+                    <div class="quote-author">- Audrey Hepburn</div>
+                </div>
+                
+                <div class="quote-card">
+                    <div class="quote-text">
+                        I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.
+                    </div>
+                    <div class="quote-author">- Angelita Lim</div>
+                </div>
+                
+                <div class="quote-card">
+                    <div class="quote-text">
+                        Love is composed of a single soul inhabiting two bodies.
+                    </div>
+                    <div class="quote-author">- Aristotle</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="surprise-section" id="surprise">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Surprise Your Loved One</h2>
+            </div>
+            <div class="surprise-container">
+                <p>Create a beautiful surprise message for your special someone!</p>
+                <div class="surprise-box">
+                    <button id="generateSurprise" class="btn">Generate Surprise</button>
+                    
+                    <div id="surpriseContent" class="surprise-content">
+                        <div class="surprise-image">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Romantic Surprise">
+                        </div>
+                        <div class="love-message" id="loveMessage">
+                            You are the source of my joy, the center of my world, and the whole of my heart!
+                        </div>
+                        <div class="movie-dialogue" id="movieDialogue">
+                            "Nuvvu naa hrudayam lo oka patam, nee prema tho rasanu... Nee pere thappa em undadu aa patam lo!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Romantic Rendezvous</h3>
+                    <p>Spreading love, laughter and romance through Telugu cinema dialogues and sweet surprises.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#jokes">Romantic Jokes</a></li>
+                        <li><a href="#dialogues">Telugu Dialogues</a></li>
+                        <li><a href="#quotes">Love Quotes</a></li>
+                        <li><a href="#surprise">Surprise Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Movies</h3>
+                    <ul>
+                        <li><a href="#">Arjun Reddy</a></li>
+                        <li><a href="#">Majili</a></li>
+                        <li><a href="#">Geetha Govindam</a></li>
+                        <li><a href="#">Dear Comrade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-heart heart"></i> Spread Love Everywhere</li>
+                        <li><i class="fas fa-envelope"></i> love@romanticrendezvous.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Romantic Rendezvous. Made with <span class="heart">❤</span> for all the lovers out there!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Surprise Generator
+        document.getElementById('generateSurprise').addEventListener('click', function() {
+            const surpriseContent = document.getElementById('surpriseContent');
+            const loveMessage = document.getElementById('loveMessage');
+            const movieDialogue = document.getElementById('movieDialogue');
+            
+            // Array of romantic messages
+            const messages = [
+                "You are the source of my joy, the center of my world, and the whole of my heart!",
+                "In your smile I see something more beautiful than the stars.",
+                "Every love story is beautiful, but ours is my favorite.",
+                "I love you not only for what you are, but for what I am when I am with you.",
+                "You're the missing piece I never knew I was looking for."
+            ];
+            
+            // Array of Telugu movie dialogues
+            const dialogues = [
+                '"Nuvvu naa hrudayam lo oka patam, nee prema tho rasanu... Nee pere thappa em undadu aa patam lo!"',
+                '"Nee ishtam neeku teliyali, nee abhimanam naku teliyali... Idi oka relationship kaadu, idi oka love."',
+                '"Manishi ki oka istam undali, oka korika undali... Naa korika neeve, naa istam neeve."',
+                '"Nuvvu naaku chala avasaram... Nee lekunte nenu enni rojulu brathikagalanu, kani brathikanantha sukham ga brathikaleru."',
+                '"Nuvvu naa daggaraki vacchesi, naa jeevithanni marchipoyanu... Ippudu nuvvu velthe, nenu em chestanu?"'
+            ];
+            
+            // Randomly select a message and dialogue
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            const randomDialogue = dialogues[Math.floor(Math.random() * dialogues.length)];
+            
+            // Update the content
+            loveMessage.textContent = randomMessage;
+            movieDialogue.textContent = randomDialogue;
+            
+            // Show the surprise content with animation
+            surpriseContent.classList.add('active');
+            
+            // Change button text
+            this.textContent = 'Generate Another Surprise';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards
+        document.querySelectorAll('.joke-card, .dialogue-card, .quote-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
